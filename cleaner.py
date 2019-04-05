@@ -9,4 +9,11 @@ html = request.urlopen(url).read().decode('utf8')
 raw = BeautifulSoup(html, 'html.parser').get_text()
 tokens = word_tokenize(raw)
 
-[print(i,end=" ") for i in tokens]
+#print tokens with appropriate spacing
+for i in range(len(tokens)):
+    if tokens[i].isalpha() and tokens[i+1].isalpha():
+        print(tokens[i], end=" ")
+    elif tokens[i].isalpha():
+        print(tokens[i], end="")
+    else:
+        print(tokens[i], end=" ")
